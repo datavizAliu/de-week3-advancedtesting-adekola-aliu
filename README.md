@@ -6,7 +6,7 @@ This project demonstrates the use of **Pytest** for automated unit testing and *
 ---
 
 ##  Project Structure
-
+```bash
 coretesting/
 │
 ├── order_pipeline/
@@ -25,6 +25,7 @@ coretesting/
     ├── test_analyzer.py
     ├── test_exporter.py
     └── test_pipeline.py
+```
 ---
 
 ##  Key Features
