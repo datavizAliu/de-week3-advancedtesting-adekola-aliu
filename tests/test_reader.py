@@ -74,3 +74,23 @@ def test_read_json_wrong_format(reader, wrong_format_json_file):
     """Should raise ValueError if JSON is not a list of dicts."""
     with pytest.raises(ValueError, match="JSON format must be list of dictionaries"):
         reader.read_json(wrong_format_json_file)
+
+def test_read_json_multiple_records(reader, tmp_path):   #to improve test percentage
+    """ Should handle files with multiple valid records."""
+    data = [{"order_id": 1}, {"order_id": 2}]
+    file_path = tmp_path / "multi.json"
+    with open(file_path, "w") as f:
+        json.dump(data, f)
+    result = reader.read_json(file_path)
+    assert len(result) == 2
+    assert all(isinstance(x, dict) for x in result)
+
+
+def test_read_json_type_validation(reader, tmp_path):       #to improve test percentage
+    """ Should fail when one element in list is not a dictionary."""
+    bad_data = [{"order_id": 1}, "invalid_record"]
+    file_path = tmp_path / "bad.json"
+    with open(file_path, "w") as f:
+        json.dump(bad_data, f)
+    with pytest.raises(ValueError, match="JSON format must be list of dictionaries"):
+        reader.read_json(file_path)
