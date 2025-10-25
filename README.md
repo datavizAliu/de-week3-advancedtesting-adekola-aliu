@@ -10,23 +10,21 @@ This project demonstrates the use of **Pytest** for automated unit testing and *
 coretesting/
 │
 ├── order_pipeline/
-│ ├── init.py
-│ ├── reader.py # Reads and validates JSON input files
-│ ├── validator.py # Validates structure, data types, and logic of records
-│ ├── transformer.py # Cleans, normalizes, and computes derived values
-│ ├── analyzer.py # Performs analytical summaries and grouping
-│ ├── exporter.py # Exports processed data to JSON/CSV
-│ └── pipeline.py # Orchestrates the full pipeline process
+│   ├── __init__.py
+│   ├── reader.py      # Reads and validates JSON input files
+│   ├── validator.py   # Validates structure, data types, and logic of records
+│   ├── transformer.py # Cleans, normalizes, and computes derived values
+│   ├── analyzer.py    # Performs analytical summaries and grouping
+│   ├── exporter.py    # Exports processed data to JSON/CSV
+│   └── pipeline.py    # Orchestrates the full pipeline process
 │
 └── tests/
-├── test_reader.py
-├── test_validator.py
-├── test_transformer.py
-├── test_analyzer.py
-├── test_exporter.py
-└── test_pipeline.py
-
-
+    ├── test_reader.py
+    ├── test_validator.py
+    ├── test_transformer.py
+    ├── test_analyzer.py
+    ├── test_exporter.py
+    └── test_pipeline.py
 ---
 
 ##  Key Features
